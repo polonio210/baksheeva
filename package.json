@@ -1,11 +1,21 @@
 {
   "name": "natribaksheeva-react",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
+  "devDependencies": {
+    "react-scripts": "0.6.1"
+  },
   "dependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-scripts": "2.1.1"
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^4.0.0",
+    "react-router-addons-controlled": "0.0.1",
+    "react-router-dom": "^4.0.0-beta.8",
+    "react-router-redux": "^5.0.0-alpha.4",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^1.0.0",
+    "redux-thunk": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
