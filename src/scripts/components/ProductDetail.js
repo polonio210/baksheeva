@@ -1,32 +1,33 @@
 import React from 'react';
-import { exitFromOpenDetail } from '../../config/actions/Index';
+import { exitFromProductDetail } from '../../config/actions/Index';
 import store from '../../index';
 import '../../styles/Detail.css';
 
-import {triple6_gif,xbutton_img} from '../../config/data/Assets';
+import { triple6_gif, xbutton_img, spider_gif } from '../../config/data/Assets';
 
-const PicDetail = ({ img_data }) => {
-    // console.log("img_data: ", img_data);
-    const { img_id } = img_data;
+const ProductDetail = ({ product_data }) => {
+    console.log("product_data: ", product_data);
+    const { product_id } = product_data;
     // console.log("img_id: ", img_id);
-    const { name, description, img } = img_id;
+    const { name, description, product_img } = product_id;
 
     function exitFromDetail() {
-        store.dispatch(exitFromOpenDetail());
+        store.dispatch(exitFromProductDetail());
 
     }
     return (
+        // <p>hola detail</p>
 
-        <div className="container container_browser ">
-            <div className="row first">
+        <div className="container container_browser product_detail">
+            <div className="row first product_detail">
 
                 <div className="column middle">
                     <div className="bar_detail left">
-                        <img src={triple6_gif}></img>
+                        <img src={spider_gif}></img>
 
                     </div>
                     <div className="bar_detail right">
-                        <img src={triple6_gif}></img>
+                        <img src={spider_gif}></img>
 
                     </div>
                     <div className="bar_detail center">
@@ -45,7 +46,7 @@ const PicDetail = ({ img_data }) => {
                     <div className="stick_url"></div>
                     <p>Original Url</p>
                     <div className="box_url">
-                        <input type="text" value={img} />
+                        <input type="text" value={product_img} />
                     </div>
                 </div>
 
@@ -55,9 +56,20 @@ const PicDetail = ({ img_data }) => {
 
             <div className="row content__browser">
 
-                <div className="inside_browser">
+                <div className="inside_browser product_detail">
                     <h1>{name}</h1>
-                    <img src={img}></img>
+                    <div className="content_product">
+                        <div className="content_product imgs">
+                            <p>Product imgs</p>
+
+                            <img src={product_img}></img>
+                        </div>
+                        <div className="content_product data">
+                            <p>Product data</p>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -68,4 +80,4 @@ const PicDetail = ({ img_data }) => {
 };
 
 
-export default PicDetail;
+export default ProductDetail;

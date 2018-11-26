@@ -1,47 +1,31 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import '../../styles/App.css';
-
-// import Content from '../containers/content';
 import { Route } from 'react-router-dom';
-
 import store from '../../index';
 import Home from '../pages/Index';
 import Store from '../pages/Store';
 import Gallery from '../pages/Gallery';
 import Access from '../pages/Access';
-import { setNewBackground, updateOpenDetail } from '../../config/actions/Index';
+import { setNewBackground } from '../../config/actions/Index';
+import Footer from '../components/Footer';
 
 class App extends Component {
 
   render() {
-    console.log("reducers:", store.getState());
-    const { backgroundReducer, routerReducer, picDetail,galleryImgs } = store.getState();
-    // const state = store.getState();
+    console.log("APP.", store.getState());
+    const { backgroundReducer, routerReducer, openPicDetail, openProductDetail, galleryImgs, productsReducer } = store.getState();
     const { location } = routerReducer;
-    // const active = state.picDetail;
-    // console.log("active APP:, ", active);
 
     function onClickFromAccess(pic) {
-
       store.dispatch(setNewBackground(pic));
-      console.log("do store.dispatch(setNewBackground());", store.dispatch(setNewBackground()));
-      console.log("backgroundReducer: ", backgroundReducer);
-
     }
-    // function onClickFromGallery(event) {
-    //   store.dispatch(updateOpenDetail(event));
-    //   console.log("store.dispatch(updateOpenDetail(event));: ", store.dispatch(updateOpenDetail()));
-
-    // }
-
     if (location.pathname === "/Home") {
       return (
         <div className="bckHome">
           <Route exact path='/Home' render={(props) => (
             <Home {...props} />
           )} />
-          <Route exact path="/Store" component={Store} />
+          {/* <Route exact path="/Store" component={Store} /> */}
 
         </div>
 
@@ -49,12 +33,13 @@ class App extends Component {
 
     }
     else if (location.pathname === "/Store") {
+      console.log("app openProductDetail", openProductDetail);
       return (
         <div className="bckStore">
           <Route exact path='/Store' render={(props) => (
-            <Store {...props} />
+            <Store detailStoreOpen={openProductDetail} storeData={productsReducer} {...props} />
           )} />
-
+          <Footer></Footer>
         </div>
 
       )
@@ -65,13 +50,10 @@ class App extends Component {
         <div className="bckGallery">
 
           <Route exact path='/Gallery' render={(props) => (
-            <Gallery detailOpen={picDetail} gallery={galleryImgs} {...props} />
-
-            // <Gallery {...props} onClick={onClickFromGallery} picDetail={active} />
-            // <Gallery {...props} onClick={onClickFromGallery} picDetail={picDetail} />
+            <Gallery detailGalleryOpen={openPicDetail} gallery={galleryImgs} {...props} />
 
           )} />
-
+          <Footer></Footer>
         </div>
 
       )

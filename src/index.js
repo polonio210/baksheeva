@@ -19,7 +19,6 @@ import reducers from './config/reducers/Index';
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(middleware, thunk)));
 export default store;
-// import Content from './scripts/containers/content'
 const render = () => ReactDOM.render(
 
 
