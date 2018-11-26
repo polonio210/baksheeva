@@ -1,36 +1,38 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import { push } from "react-router-redux";
+import { push, goBack } from "react-router-redux";
 import { connect } from "react-redux";
+import '../../styles/Store.css';
+import Products from '../components/Products';
 
-
-const Store = () => {
-
-    // render() {
+const Store = (props) => {
+    console.log("props store:", props);
+    const { detailStoreOpen, storeData } = props;
+    console.log("ProductDetailOpen store:", detailStoreOpen);
 
     return (
         <div>
-           <h1>store</h1>
-      
-      
-    </div >
+            <div className="header_store">
+                <button onClick={props.navigateTo.bind(this)}>exit</button>
+
+            </div>
+
+            <Products listOfProducts={storeData} detailOpenPr={detailStoreOpen}></Products>
+
+        </div >
 
     );
 }
-// }
-// const state = (state, ownProps = {}) => {
+const state = (state, ownProps = {}) => {
+    return {
+        location: state.location,
+    }
 
-//     console.log("state state access", state);
-//     return {
-//         location: state.location,
-//     }
+}
 
-// }
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    navigateTo: () => {
+        dispatch(goBack());
 
-// const mapDispatchToProps = (dispatch, ownProps) => ({
-//     navigateTo: (location) => {
-//         dispatch(push(location));
-//     }
-// });
-// export default connect(state, mapDispatchToProps)(Store);
-export default Store;
+    }
+});
+export default connect(state, mapDispatchToProps)(Store);
