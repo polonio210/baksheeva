@@ -1,0 +1,45 @@
+.list-content {
+    margin-top: 33px;
+}
+.list-content img {
+	width: 90%;
+	height: 90%;
+	margin: auto;
+}
+.-card{
+	width: 80%; 
+	background-color: transparent;
+}
+.list-content-product{
+	text-align: center;
+	 width: 90%;
+	 margin: auto;
+}
+.list-content-product :first-child{
+	font-size: 20px;
+	margin-top: 15px;
+}
+.list-content-product :last-child{
+	color:rgb(43, 255, 0);
+}
+.list-content-detail {
+	position: fixed;
+	top: 50%;
+    left: 50%;
+    width: 140vw;
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
+@media only screen and (max-width: 800px) {
+	.list-content-detail{
+		width: 100%;
+	
+	}
+}
+/* @media only screen and (max-width: 700px) {
+	.list-content-detail{
+		width: 100%;
+	}
+}
+ */
+

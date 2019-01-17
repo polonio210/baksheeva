@@ -3,12 +3,10 @@ import { exitFromOpenDetail } from '../../config/actions/Index';
 import store from '../../index';
 import '../../styles/Detail.css';
 
-import {triple6_gif,xbutton_img} from '../../config/data/Assets';
+import { triple6_gif, xbutton_img } from '../../config/data/Assets';
 
 const PicDetail = ({ img_data }) => {
-    // console.log("img_data: ", img_data);
     const { img_id } = img_data;
-    // console.log("img_id: ", img_id);
     const { name, description, img } = img_id;
 
     function exitFromDetail() {
@@ -17,45 +15,41 @@ const PicDetail = ({ img_data }) => {
     }
     return (
 
-        <div className="container container_browser ">
-            <div className="row first">
+        <div className="detail-container container">
+            <div className="detail-container-bar detail-container-bar--gallery row">
 
-                <div className="column middle">
-                    <div className="bar_detail left">
+                <div className="detail-container-bar-content">
+                    <div className="detail-container-bar-content_left">
                         <img src={triple6_gif}></img>
 
                     </div>
-                    <div className="bar_detail right">
+                    <div className="detail-container-bar-content_right">
                         <img src={triple6_gif}></img>
 
                     </div>
-                    <div className="bar_detail center">
+                    <div className="detail-container-bar-content_center">
                         <p>{name}</p>
-
                     </div>
                 </div>
-                <div className="column right">
-                    <div className="bars" onClick={exitFromDetail.bind(null)}>
+                <div>
+                    <div className="detail-container-bar_exit" onClick={exitFromDetail.bind(null)}>
                         <img src={xbutton_img}></img>
                     </div>
                 </div>
             </div>
-            <div className="row second">
-                <div className="box_shadow">
-                    <div className="stick_url"></div>
+            <div className="detail-container-url row">
+                <div className="detail-container-url_wrap">
+                    <div className="detail-container-url_stick"></div>
                     <p>Original Url</p>
-                    <div className="box_url">
+                    <div className="detail-container-url_box">
                         <input type="text" value={img} />
                     </div>
                 </div>
 
             </div>
-            <div className="row third">
-            </div>
 
-            <div className="row content__browser">
-
-                <div className="inside_browser">
+            <div className="row">
+                <div className="detail-container-content detail-container-content--gallery">
                     <h1>{name}</h1>
                     <img src={img}></img>
                 </div>

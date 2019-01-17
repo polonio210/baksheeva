@@ -1,17 +1,14 @@
 
 import React, { Component } from 'react';
-import '../../styles/App.css';
+import '../../styles/Footer.css';
 
 class Footer extends Component {
-
-
-
     render() {
         return (
-            <footer>
+            <footer className="footer-container">
                 <p>Jaja</p>
                 <p>Contact information: <a href="mailto:someone@example.com">
-                    someone@example.com</a>.</p>
+                    someone@example.com</a></p>
             </footer>
         );
     }

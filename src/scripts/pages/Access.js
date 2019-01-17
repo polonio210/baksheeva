@@ -13,16 +13,13 @@ const Access = (props) => {
         <div className="img" to="/Home" onClick={props.navigateTo.bind(this, '/Home')}>
             <div onClick={onClickFunction}>
                 <img src={access_img}></img>
-
             </div>
         </div>
     )
-
 }
 
 const state = (state, ownProps = {}) => {
 
-    console.log("state state access", state);
     return {
         location: state.location,
     }

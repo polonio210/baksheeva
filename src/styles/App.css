@@ -1,70 +1,45 @@
-.bckAccess {
-  text-align: center;
-  background-color: #28d43f;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+
+.background{
+  
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100% ; 
+  height: 100%;
+  top:0;
+  left:0;
+  z-index: -1;   
 }
-.bckHome {
-  background-color: #000000;
-  min-height: 100vh;
+.-static {
+    position:fixed;
+}
+.-center{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  width: 100%;
 }
-.bckStore {
-  background-color: #111111;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  width: 100%;
+.background-access {
+  text-align: center;
+  background-color: black;
+  opacity: 0.9;
+  background-image: url("../assets/white-sound.gif");
 }
-.bckGallery {
-  /* background-image: url(https://ih1.redbubble.net/image.369343050.5970/flat,750x1000,075,t.u1.jpg); */
+.background-home {
+  background-color: #ecdfdf56;
+  color: white;
+  background-image: url("../assets/white-sound.gif") ;
+  background-blend-mode: lighten;
+}
+.background-store {
+  background-color: #ecdfdf56;
+  color: white;
+  background-blend-mode: lighten;
+  background-image: url("../assets/white-sound.gif") ;
+}
+.background-gallery {
   background-color: #201f1f;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-  width: 100%;
-  overflow: hidden;
-}
-Footer{
-  background-color: #000000b6;
-  width: 100%;
-  margin-top:60px; 
-
-}
-/* .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-} */
-
-/* .App-main {
-
-} */
-
-.App-link {
-  color: #61dafb;
+  background-blend-mode: lighten;
+  background-image: url("../assets/white-sound.gif") ;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

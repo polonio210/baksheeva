@@ -2,43 +2,48 @@ import React, { Component } from 'react';
 import { push } from "react-router-redux";
 import { connect } from "react-redux";
 import "../../styles/Index.css";
-import { blackred_logo, whiteflash_gif, greenskull_gif } from '../../config/data/Assets';
+import {
+  whiteflash_gif,
+  transp_logo,
+  britney,
+  laser_gif,
+  fire_img,
+  navbar
+} from '../../config/data/Assets';
 
 const Index = (props) => {
 
   return (
     <div>
-      <div className="flash__gif_lft">
-        <img src={whiteflash_gif}></img>
-      </div>
-      <div className="flash__gif_rgt">
-        <img src={whiteflash_gif}></img>
-      </div>
-      <div className="header">
-        <img className="logo__header" src={blackred_logo}></img>
-      </div>
-      <div className="index__buttons" >
-
-        <div className="index__btn" id="btn_left" to="/Gallery" onClick={props.navigateTo.bind(this, '/Gallery')}>
-
-          <img className="btn_img" src={greenskull_gif}></img>
-          Gallery
+      <div className="home-header">
+        <div className="home-header-flash home-header-flash_left">
+          <img src={whiteflash_gif}></img>
         </div>
-        <div className="index__btn" id="btn_center" to="/Store" onClick={props.navigateTo.bind(this, '/Store')}>
-
-          <img className="btn_img" src={greenskull_gif}></img>
-          Store
-
+        <div className="home-header-flash home-header-flash_right">
+          <img src={whiteflash_gif}></img>
         </div>
-        <div className="index__btn" id="btn_right">
-
-          <img className="btn_img" src={greenskull_gif}></img>
-          jaja
-
+        <div className="home-header-logo">
+          <img src={transp_logo}></img>
         </div>
       </div>
-    </div >
+      <div className="container">
+        <div className="home-content content">
+          <div className="home-content-img_right">
+            <img src={britney}></img>
+          </div>
+          <div className="home-content-img_center">
+            <img src={laser_gif}></img>
+          </div>
+          <div className="home-content-img_below">
+            <img src={fire_img}></img>
+          </div>
+          <div className="home-content-img_above">
+            <img src={navbar}></img>
 
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

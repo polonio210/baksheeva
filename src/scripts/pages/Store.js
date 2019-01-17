@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
 import { push, goBack } from "react-router-redux";
 import { connect } from "react-redux";
-import '../../styles/Store.css';
 import Products from '../components/Products';
 
 const Store = (props) => {
-    console.log("props store:", props);
     const { detailStoreOpen, storeData } = props;
-    console.log("ProductDetailOpen store:", detailStoreOpen);
-
     return (
         <div>
-            <div className="header_store">
-                <button onClick={props.navigateTo.bind(this)}>exit</button>
 
+            <div className="container">
+                <Products listOfProducts={storeData} detailOpenPr={detailStoreOpen}></Products>
             </div>
 
-            <Products listOfProducts={storeData} detailOpenPr={detailStoreOpen}></Products>
 
         </div >
 
@@ -36,3 +31,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     }
 });
 export default connect(state, mapDispatchToProps)(Store);
+

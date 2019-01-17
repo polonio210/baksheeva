@@ -15,14 +15,22 @@ const history = createHistory();
 const middleware = routerMiddleware(history);
 
 import App from "./scripts/containers/App";
-import reducers from './config/reducers/Index';
+import rootReducer from './config/reducers/Index';
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(middleware, thunk)));
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import fbConfig from './config/Firebase/fbConfig';
+
+// const store = createStore(rootReducer,
+const store = createStore(rootReducer,
+    composeWithDevTools(
+        applyMiddleware(middleware, thunk.withExtraArgument({ getFirebase, getFirestore })),
+        reduxFirestore(fbConfig),
+        reactReduxFirebase(fbConfig)
+    )
+);
 export default store;
 const render = () => ReactDOM.render(
-
-
-
     <Provider store={store}>
         <Router history={history}>
             <div>
@@ -34,7 +42,7 @@ const render = () => ReactDOM.render(
 );
 
 render();
-store.subscribe(render)
+store.subscribe(render);
 // const render = () => {
 //     fancyLog();
 //     return ReactDOM.render(<Provider store={store}>

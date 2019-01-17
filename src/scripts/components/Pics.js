@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import store from '../../index';
 import { updateOpenDetail } from '../../config/actions/Index';
-import '../../styles/Gallery.css';
 import PicDetail from './PicDetail';
+import '../../styles/list.css';
 
 const Pic = ({ pic }) => {
-    const { name, description, img, img_id } = pic;
+    // const { name, description, img, img_id } = pic;
+    console.log("pic: ",pic);
+    const { description, photo, title } = pic;
 
-    let className = 'Pics';
-
+    let className = 'list-content';
     let isActiveClass = false;
 
     function addClass(active) {
         isActiveClass = active;
-        console.log("active", active);
     }
     function openDetailToGallery(img_id) {
-
         store.dispatch(updateOpenDetail(img_id));
 
     }
@@ -24,13 +23,14 @@ const Pic = ({ pic }) => {
         className += ' detail-active';
 
     }
-    console.log("reload");
     return (
         <div className="col-sm-3">
             <div className={className} onClick={openDetailToGallery.bind(null, pic)} >
-                <div className="card" onClick={addClass.bind(null, true)}>
-                    <img className="pic_src" src={img} alt={img}></img>
-
+                <div className={className + "-card"} onClick={addClass.bind(null, true)}>
+                    <img src={photo} alt={photo}></img>
+                    {/* <div className="card data_product">
+                        <p>{name}</p>
+                    </div> */}
                 </div>
 
 
@@ -41,21 +41,19 @@ const Pic = ({ pic }) => {
 }
 
 const Pics = ({ listOfPics, detailOpenGl }) => {
-    console.log("detailOpenGl: ",detailOpenGl);
-
     return (
-
-        <aside className="pictures">
-
-            <div className="container">
+        <aside>
+            <div >
 
                 {detailOpenGl ?
-                    <div className="detail-opened">
+                    <div className="list-content-detail">
                         <PicDetail img_data={detailOpenGl}></PicDetail>
                     </div>
                     : null}
                 <div className="row">
-                    {listOfPics.map(pr => <Pic pic={pr} key={pr.img_id} />)}
+                    {listOfPics && listOfPics.map(pr =>
+                        <Pic pic={pr} key={pr.id} />
+                    )}
                 </div>
 
             </div>
