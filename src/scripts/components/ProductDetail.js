@@ -4,7 +4,7 @@ import store from '../../index';
 import '../../styles/Detail.css';
 import ReactDOM from 'react-dom';
 
-import { triple6_gif, xbutton_img, spider_gif } from '../../config/data/Assets';
+import { $triple6, $buttonx, $spider } from '../../config/data/Assets';
 
 const ProductDetail = ({ product_data }) => {
     const { product_id } = product_data;
@@ -20,11 +20,11 @@ const ProductDetail = ({ product_data }) => {
 
                 <div className="detail-container-bar-content">
                     <div className="detail-container-bar-content_left">
-                        <img src={spider_gif}></img>
+                        <img src={$spider}></img>
 
                     </div>
                     <div className="detail-container-bar-content_right">
-                        <img src={spider_gif}></img>
+                        <img src={$spider}></img>
 
                     </div>
                     <div className="detail-container-bar-content_center">
@@ -33,7 +33,7 @@ const ProductDetail = ({ product_data }) => {
                 </div>
                 <div>
                     <div className="detail-container-bar_exit" onClick={exitFromDetail.bind(null)}>
-                        <img src={xbutton_img}></img>
+                        <img src={$buttonx}></img>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,6 @@
 
 
 .background{
-  
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -13,6 +12,11 @@
 }
 .-static {
     position:fixed;
+}
+.-absolute {
+  position:absolute;
+  display: flex;
+  flex-direction: column;
 }
 .-center{
   display: flex;
@@ -37,8 +41,17 @@
   background-image: url("../assets/white-sound.gif") ;
 }
 .background-gallery {
-  background-color: #201f1f;
+  background-color: #292828ad;
   color: white;
+  background-blend-mode: multiply;
+  background-size: 40%;
+  background-image: url("https://thumbs.gfycat.com/FarflungDefiantGrayling-size_restricted.gif")  ;
+}
+.background-login {
+  background-color: #201f1f;
+  text-align: center;
+  opacity: 0.9;
+  color: rgb(39, 39, 39);
   background-blend-mode: lighten;
   background-image: url("../assets/white-sound.gif") ;
 }

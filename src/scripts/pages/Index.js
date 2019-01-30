@@ -3,45 +3,47 @@ import { push } from "react-router-redux";
 import { connect } from "react-redux";
 import "../../styles/Index.css";
 import {
-  whiteflash_gif,
-  transp_logo,
-  britney,
-  laser_gif,
-  fire_img,
-  navbar
+  $whiteflash,
+  $transparentlogo,
+  $britney,
+  $laser,
+  $fireimg,
+  $navbar
 } from '../../config/data/Assets';
 
 const Index = (props) => {
 
   return (
-    <div>
+    <div className="home-content">
       <div className="home-header">
         <div className="home-header-flash home-header-flash_left">
-          <img src={whiteflash_gif}></img>
-        </div>
-        <div className="home-header-flash home-header-flash_right">
-          <img src={whiteflash_gif}></img>
+          <img src={$whiteflash}></img>
         </div>
         <div className="home-header-logo">
-          <img src={transp_logo}></img>
+          <img src={$transparentlogo}></img>
+        </div>
+        <div className="home-header-flash home-header-flash_right">
+          <img src={$whiteflash}></img>
+        </div>
+
+
+      </div>
+
+      <div className="home-subheader">
+
+        <div className="home-subheader-img_center">
+          <img src={$laser}></img>
+        </div>
+        <div className="home-subheader-img_right">
+          <img src={$britney}></img>
+        </div>
+        <div className="home-subheader-img_above">
+          <img src={$navbar}></img>
         </div>
       </div>
-      <div className="container">
-        <div className="home-content content">
-          <div className="home-content-img_right">
-            <img src={britney}></img>
-          </div>
-          <div className="home-content-img_center">
-            <img src={laser_gif}></img>
-          </div>
-          <div className="home-content-img_below">
-            <img src={fire_img}></img>
-          </div>
-          <div className="home-content-img_above">
-            <img src={navbar}></img>
+      <div className="home-subheader-img_above-out">
+        <img src={$navbar}></img>
 
-          </div>
-        </div>
       </div>
     </div>
   );

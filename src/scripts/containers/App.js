@@ -14,34 +14,27 @@ import Menu from '../components/menu';
 import BannerImg from '../components/banner-img';
 import CrazyBar from '../components/crazy-bar';
 import menuItems from '../../config/menu/Menu';
-import { createGallery } from '../../config/actions/Index';
+import NotFound404 from '../pages/NotFoundPage';
+import Login from '../pages/Login';
+import SignedInNav from '../components/authComponents/signedInNav';
+import { createGallery } from '../../config/actions/Gallery';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { connect } from "react-redux";
+import { galleryNav, storeNav } from '../../config/menu/galleryMenu';
 
 class App extends Component {
 
   render() {
-    // const { 
-    //   background,
-    //   picDetail,
-    //   productDetail,
-    //   products,
-    //   gallery,
-    //   router
-    // } = store.getState();
-
-    const { backgroundReducer,
+    const {
+      backgroundReducer,
       routerReducer,
       openPicDetail,
       openProductDetail,
       productsReducer,
       galleryReducer
     } = store.getState();
-    
-    const { location } = routerReducer;
- 
-    
+
     function onClickFromAccess(pic) {
       store.dispatch(setNewBackground(pic));
     }
@@ -49,10 +42,14 @@ class App extends Component {
     if (location.pathname === "/Home") {
       return (
 
-        <div className="background background-home -static">
+        <div className="background background-home ">
+                  
+
           <Route exact path='/Home' render={(props) => (
             <Home {...props} />
+            
           )} />
+          <BannerImg />
         </div>
       )
     }
@@ -67,6 +64,7 @@ class App extends Component {
             <Store detailStoreOpen={openProductDetail} storeData={productsReducer} {...props} />
           )} />
           <Footer></Footer>
+
         </div>
 
       )
@@ -99,9 +97,32 @@ class App extends Component {
 
       )
     }
+    else if (location.pathname === "/xxxloginxxnatribaksheevaxxx") {
+      return (
+        <div className="background background-login -static -center">
+          <Route exact path='/xxxloginxxnatribaksheevaxxx' render={(props) => (
+            <Login {...props} />
+
+          )} />
+        </div>
+
+      )
+    }
+    else if (location.pathname === "/404") {
+      return (
+        <div className="background background-notfoundpage -static">
+          <Route exact path='/404' render={(props) => (
+            <NotFound404 {...props} />
+
+          )} />
+          <Footer></Footer>
+        </div>
+
+      )
+    }
     else {
       return (
-        <div className={backgroundReducer ? "bckHome" : "background background-access -static -center"}>
+        <div className={backgroundReducer ? "background background-home" : "background background-access -static -center"}>
 
           <Route exact path='/' render={(props) => (
             <Access {...props} onClick={onClickFromAccess} />
@@ -116,24 +137,21 @@ class App extends Component {
     }
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createGallery: (gallery) => dispatch(createGallery(gallery))
-  }
-}
-const mapStateToProps = (state) => {
-  console.log("mapStateToProps...", state);
+const state = (state, ownProps = {}) => {
+  console.log("mapStateToProps... app", state);
 
   return {
-    gallery: state.createGallery
+    location: state.location,
+
   }
 
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     createGallery: (gallery) => dispatch(createGallery(gallery))
+//   }
+// }
 export default App;
-// export default compose(mapStateToProps, mapDispatchToProps, firestoreConnect([{ collection: 'gallery' }]))(App)
-// export default compose(
-//   connect(mapStateToProps),
-//   firestoreConnect([
-//     { collection: 'gallery' }
-//   ])
-// )(App);
+
+// export default connect(mapDispatchToProps)(App);

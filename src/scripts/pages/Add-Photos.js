@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createGallery } from '../../config/actions/Index';
+import { createGallery } from '../../config/actions/Gallery';
 import { Redirect } from 'react-router-dom';
 
 class AddPhotos extends Component {
@@ -20,11 +20,14 @@ class AddPhotos extends Component {
         this.props.history.push('/Gallery');
     }
     render() {
-        // const { auth } = this.props;
-        // if (!auth.uid) return <Redirect to='/signin' />
+        // console.log("this.props addphotos: ", this.props);
+        // console.log("this.state addphotos: ", this.state);
+
+        const { auth } = this.props;
+        if (!auth.uid)
+            return <Redirect to='/Gallery' />
         return (
             <div className="container">
-                <h1>on CreateProject</h1>
                 <form className="white" onSubmit={this.handleSubmit}>
                     <h5 className="grey-text text-darken-3">Create a New Project</h5>
                     <div className="input-field">
@@ -47,14 +50,12 @@ class AddPhotos extends Component {
         )
     }
 }
-
 const mapStateToProps = (state) => {
     return {
-        // auth: state.firebase.auth
+        auth: state.firebaseReducer.auth
     }
 }
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
         createGallery: (gallery) => dispatch(createGallery(gallery))
     }

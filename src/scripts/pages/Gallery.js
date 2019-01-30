@@ -2,34 +2,19 @@ import React, { Component } from 'react';
 import { push, goBack } from "react-router-redux";
 import { connect } from "react-redux";
 import Pics from '../components/Pics';
-import { createGallery } from '../../config/actions/Index';
+import { createGallery } from '../../config/actions/Gallery';
 import store from '../../index';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+
 class Gallery extends Component {
-
-    // const Gallery = (props) => {
-
-    // const { detailGalleryOpen, gallery } = props;
-
-
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.history.push('/addphotos');
-    }
     render() {
-        console.log("props gallery", this.props);
-        const { gallery, location,detailGalleryOpen} = this.props;
-        console.log("gallery", gallery);
+        const { auth, gallery, location, detailGalleryOpen } = this.props;
 
         return (
             <div className="container">
-                <Pics listOfPics={gallery} detailOpenGl={detailGalleryOpen}></Pics>
-                <div >
-                    <button onClick={this.handleSubmit}>Create new photo</button>
-                    {/* <button onClick={this.props.navigateTo.bind(this, '/addphotos')}>Create new photo</button> */}
-                </div>
+                <Pics listOfPics={gallery} authPics={auth} detailOpenGl={detailGalleryOpen}></Pics>
+
             </div>
 
         )
@@ -54,14 +39,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 const mapStateToProps = (state) => {
-    console.log("mapStateToProps gallery...", state);
+    // console.log("mapStateToProps gallery...", state);
 
     return {
         gallery: state.firestoreReducer.ordered.gallery,
         location: state.location,
+        auth: state.firebaseReducer.auth,
+
     }
 
 }
+
 // export default connect(state, mapDispatchToProps)(Gallery);
 export default compose(
     connect(mapStateToProps),

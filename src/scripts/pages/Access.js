@@ -3,7 +3,7 @@ import '../../styles/App.css';
 import { connect } from "react-redux";
 import { push } from "react-router-redux";
 import '../../styles/Access.css';
-import { access_img } from '../../config/data/Assets';
+import { $access } from '../../config/data/Assets';
 const Access = (props) => {
 
     function onClickFunction(event) {
@@ -12,7 +12,7 @@ const Access = (props) => {
     return (
         <div className="img" to="/Home" onClick={props.navigateTo.bind(this, '/Home')}>
             <div onClick={onClickFunction}>
-                <img src={access_img}></img>
+                <img src={$access}></img>
             </div>
         </div>
     )

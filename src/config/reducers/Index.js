@@ -20,7 +20,8 @@ export default combineReducers({
     productsReducer,
     authReducer,
     galleryReducer,
-    firestoreReducer
+    firestoreReducer,
+    firebaseReducer
 })
 // const rootReducer = combineReducers({
 //     background: backgroundReducer,

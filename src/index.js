@@ -21,7 +21,6 @@ import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import fbConfig from './config/Firebase/fbConfig';
 
-// const store = createStore(rootReducer,
 const store = createStore(rootReducer,
     composeWithDevTools(
         applyMiddleware(middleware, thunk.withExtraArgument({ getFirebase, getFirestore })),
@@ -30,6 +29,7 @@ const store = createStore(rootReducer,
     )
 );
 export default store;
+
 const render = () => ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>
@@ -43,31 +43,3 @@ const render = () => ReactDOM.render(
 
 render();
 store.subscribe(render);
-// const render = () => {
-//     fancyLog();
-//     return ReactDOM.render(<Provider store={store}>
-//         <Router history={history}>
-//             <div>
-//                 <App />
-//             </div>
-//         </Router>
-//     </Provider>,
-//         document.getElementById('root'))
-// };
-// function fancyLog() {
-//     console.log("%c NATRIBAKSHEEVA 👉 👉👇", "background: purple; color: #FFF");
-// }
-// store.subscribe(render);
-
-// render();
-
-
-//----INITIAL----------------
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './scripts/containers/App';
-// import * as serviceWorker from './serviceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// serviceWorker.unregister();

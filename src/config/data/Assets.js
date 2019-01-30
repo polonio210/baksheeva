@@ -6,48 +6,51 @@ import spider from '../../assets/gif4.gif';
 import rat from '../../assets/gif6.gif';
 import blue_flash from '../../assets/gif7.gif';
 import white_flash from '../../assets/gif8.gif';
-import green_skull from '../../assets/skull1.gif';
-import white_skull from '../../assets/skull2.gif';
+import greenskull from '../../assets/skull1.gif';
+import whiteskull from '../../assets/skull2.gif';
 import triple6 from '../../assets/666.gif';
-import fire_green from '../../assets/fire_green.gif';
-import fire from '../../assets/fire.gif';
+import firegreen from '../../assets/fire_green.gif';
+import fireimg1 from '../../assets/fire.gif';
 import laser from '../../assets/laser2.png';
-import fire1 from '../../assets/fire3.gif';
+import fireimg2 from '../../assets/fire3.gif';
 
 //logos import
 import white_logo from '../../assets/logo.jpeg';
-import black_red_logo from '../../assets/logo1.jpeg';
+import blackredlogo from '../../assets/logo1.jpeg';
 import red_logo from '../../assets/logo2.jpeg';
 import black_logo from '../../assets/logo3.jpeg';
-import transparent_logo from '../../assets/transparent-logo.png'; 
+import transparentlogo from '../../assets/transparent-logo.png'; 
+import multicolorlogo from '../../assets/multicolor-logo.jpeg';
 //extra imports
 import xbutton from '../../assets/xbtn.png';
 import access from '../../assets/Access.png';
-import img_britney from '../../assets/transparent-britney.png';
-import img_fire from '../../assets/fire2.png';
-import navbar_img from '../../assets/navbar.png';
+import britney from '../../assets/transparent-britney.png';
+import fireimg from '../../assets/fire2.png';
+import navbar from '../../assets/navbar.png';
 
 //gifs exports 
-export const whiteflash_gif = white_flash;
-export const greenskull_gif = green_skull;
-export const triple6_gif = triple6;
-export const whiteskull_gif = white_skull;
-export const firegreen_gif = fire_green;
-export const fire_gif = fire;
-export const spider_gif = spider;
-export const laser_gif = laser;
-export const fire1_gif = fire1;
+export const $whiteflash = white_flash;
+export const $greenskull = greenskull;
+export const $triple6 = triple6;
+export const $whiteskull = whiteskull;
+export const $firegreen = firegreen;
+export const $fireimg1 = fireimg1;
+export const $spider = spider;
+export const $laser = laser;
+export const $fireimg2 = fireimg2;
 
 //logos exports
 
-export const blackred_logo = black_red_logo;
-export const transp_logo = transparent_logo;
+export const $blackredlogo = blackredlogo;
+export const $transparentlogo = transparentlogo;
+export const $multicolorlogo = multicolorlogo;
 
 
 //extra exports
-export const navbar = navbar_img;
-export const access_img = access;
-export const xbutton_img = xbutton;
-export const britney = img_britney;
-export const fire_img = img_fire;
+export const $navbar = navbar;
+export const $access = access;
+export const $buttonx = xbutton;
+export const $britney = britney;
+export const $fireimg = fireimg;
+
 

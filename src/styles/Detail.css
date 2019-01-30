@@ -77,6 +77,8 @@
     height: 90%;
     position: relative;
     top:2px;
+  
+
 }
 .detail-container-bar_exit img{
     width: 30px;
@@ -92,8 +94,14 @@
     border: 4px outset #cececd;
 
 }
+.detail-container-content--gallery {
+    /* width: 40%; */
+    margin: auto;
+    /* background-color: #3fdf00; */
+}
 .detail-container-content--gallery img{
-    min-width: 40%;
+    max-width: 90%;
+    max-height:90%;
 }
 /*change scrollbar*/
  ::-webkit-scrollbar-track {
@@ -137,6 +145,7 @@ input[type=text] {
 ::-webkit-scrollbar {
     width: 10px;
 }
+/*Tablets*/
 @media only screen and (max-width: 900px) {
         .detail-container-data{
            display: block;
@@ -154,6 +163,7 @@ input[type=text] {
             justify-content: center;
         }
 }
+/*mobile*/
 
 @media only screen and (max-width: 700px) {
 

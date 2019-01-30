@@ -3,11 +3,12 @@ import { exitFromOpenDetail } from '../../config/actions/Index';
 import store from '../../index';
 import '../../styles/Detail.css';
 
-import { triple6_gif, xbutton_img } from '../../config/data/Assets';
+import { $triple6, $buttonx } from '../../config/data/Assets';
 
 const PicDetail = ({ img_data }) => {
+
     const { img_id } = img_data;
-    const { name, description, img } = img_id;
+    const { title, description, photo } = img_id;
 
     function exitFromDetail() {
         store.dispatch(exitFromOpenDetail());
@@ -20,20 +21,20 @@ const PicDetail = ({ img_data }) => {
 
                 <div className="detail-container-bar-content">
                     <div className="detail-container-bar-content_left">
-                        <img src={triple6_gif}></img>
+                        <img src={$triple6}></img>
 
                     </div>
                     <div className="detail-container-bar-content_right">
-                        <img src={triple6_gif}></img>
+                        <img src={$triple6}></img>
 
                     </div>
                     <div className="detail-container-bar-content_center">
-                        <p>{name}</p>
+                        <p>{title}</p>
                     </div>
                 </div>
                 <div>
                     <div className="detail-container-bar_exit" onClick={exitFromDetail.bind(null)}>
-                        <img src={xbutton_img}></img>
+                        <img src={$buttonx}></img>
                     </div>
                 </div>
             </div>
@@ -42,16 +43,19 @@ const PicDetail = ({ img_data }) => {
                     <div className="detail-container-url_stick"></div>
                     <p>Original Url</p>
                     <div className="detail-container-url_box">
-                        <input type="text" value={img} />
+                        <input type="text" value={photo} />
                     </div>
                 </div>
 
             </div>
 
             <div className="row">
-                <div className="detail-container-content detail-container-content--gallery">
-                    <h1>{name}</h1>
-                    <img src={img}></img>
+                <div className="detail-container-content ">
+
+                    <div className="detail-container-content detail-container-content--gallery">
+                        <h1>{title}</h1>
+                        <img src={photo}></img>
+                    </div>
                 </div>
             </div>
         </div>

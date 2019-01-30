@@ -4,16 +4,32 @@ import { connect } from "react-redux";
 import '../../styles/Menu.css';
 import { Link } from 'react-router-dom';
 import {
-    fire_img,
-    transp_logo
+    $fireimg,
+    $transparentlogo
 } from '../../config/data/Assets';
+import { signOut } from '../../config/actions/Auth';
+import SignedInNav from '../components/authComponents/signedInNav';
+import { galleryNav, storeNav } from '../../config/menu/galleryMenu';
+
 const Menu = (props) => {
-    const { items } = props;
+
+    const { items, auth, location } = props;
+    var locationGallery = location.pathname == "/Gallery";
+    var locationStore = location.pathname == "/Store";
+
     return (
         <div className="nav-container">
 
+            {(locationGallery && auth.uid) ?
+
+                <SignedInNav navContent={galleryNav} />
+
+                : (locationStore && auth.uid) ?
+                    <SignedInNav navContent={storeNav} />
+                    : null
+            }
             <div className="nav-container nav-container-logo">
-                <img src={transp_logo}></img>
+                <img src={$transparentlogo}></img>
             </div>
 
             <ul className="menu-container">
@@ -28,14 +44,17 @@ const Menu = (props) => {
 
     );
 }
-const state = (state, ownProps = {}) => {
+
+const mapStateToProps = (state) => {
+
     return {
-        location: state.location,
+        auth: state.firebaseReducer.auth,
+        location: state.routerReducer.location,
     }
-
 }
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-
-});
-export default connect(state, mapDispatchToProps)(Menu);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
