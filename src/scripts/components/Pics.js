@@ -32,7 +32,6 @@ const Pic = ({ pic, authPic }) => {
                         <div className={className + "-card"} onClick={addClass.bind(null, true)}>
                             <div className="list-content-edit_buttons">
                                 <button>EDIT</button>
-
                                 <button>X</button>
                             </div>
 
